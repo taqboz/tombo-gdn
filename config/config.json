@@ -1,0 +1,86 @@
+{
+  "check_page_parallel": 10,
+  "get_links_parallel": 10,
+  "get_links_time_sleep": 1,
+  "retry_at_err": 1000,
+
+  "tags":[
+    {
+      "tag": "title",
+      "min": 20,
+      "max": 40,
+      "kw_min": 1,
+      "kw_max": 1,
+      "duplicate": true
+    },
+    {
+      "tag": "meta",
+      "target": "content",
+      "attr": {
+        "name": "description"
+      },
+      "min": 120,
+      "max": 255,
+      "kw_min": 1,
+      "kw_max": 2,
+      "duplicate": true
+    },
+    {
+      "tag": "meta",
+      "target": "content",
+      "attr": {
+        "name": "keywords"
+      },
+      "multiple_content": {
+        "duplicate_in_content": true,
+        "split_point": ",",
+        "min": 2,
+        "max": 7
+      },
+      "duplicate_in_page": true,
+      "match": [
+        ""
+      ]
+    },
+    {
+      "tag": "h1",
+      "min": 30,
+      "max": 50,
+      "kw_min": 1,
+      "kw_max": 1,
+      "duplicate": true
+    },
+    {
+      "tag": "meta",
+      "target": "content",
+      "attr": {
+        "property": "og:image"
+      },
+      "duplicate_in_page": true,
+      "match": [
+        ""
+      ]
+    },
+    {
+      "tag": "meta",
+      "target": "content",
+      "attr": {
+        "property": "og:site_name"
+      },
+      "duplicate_in_page": true,
+      "match": [
+        ""
+      ]
+    },
+    {
+      "tag": "img",
+      "target": "alt",
+      "match": [
+        ""
+      ],
+      "include": [
+        "サンプル"
+      ]
+    }
+  ]
+}
