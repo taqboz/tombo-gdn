@@ -5,7 +5,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/taqboz/tombo/cli/config"
+	"github.com/taqboz/tombo-gdn/cli/config"
 )
 
 // 文字列の長さのエラーの確認

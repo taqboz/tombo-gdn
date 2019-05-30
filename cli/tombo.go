@@ -3,16 +3,16 @@ package cli
 import (
 	"github.com/urfave/cli"
 
-	"github.com/taqboz/tombo/cli/target"
-	"github.com/taqboz/tombo/cli/view"
+	"github.com/taqboz/tombo-gdn/cli/target"
+	"github.com/taqboz/tombo-gdn/cli/view"
 )
 
-const version = "0.1.0"
+const version = "0.1.2"
 
 func New() *cli.App {
 	app := cli.NewApp()
 
-	app.Name = "tombo"
+	app.Name = "tombo-gdn"
 	app.Usage = "This app check website's error information."
 	app.Version = version
 
@@ -45,11 +45,6 @@ func New() *cli.App {
 		case context.Bool("body"):
 			target.Option = "body > "
 			if err := process("contents"); err != nil {
-				return err
-			}
-
-		case context.Bool("link"):
-			if err := process("links"); err != nil {
 				return err
 			}
 

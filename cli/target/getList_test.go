@@ -6,7 +6,7 @@ import (
 	"testing"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/taqboz/tombo/internal/app/tombo/pkg"
+	"github.com/taqboz/tombo-gdn/internal/app/tombo-gdn/pkg"
 )
 
 func TestGetFromXml(t *testing.T) {

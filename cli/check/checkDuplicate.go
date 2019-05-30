@@ -3,8 +3,8 @@ package check
 import (
 	"strings"
 
-	"github.com/taqboz/tombo/cli/config"
-	"github.com/taqboz/tombo/internal/app/tombo/pkg"
+	"github.com/taqboz/tombo-gdn/cli/config"
+	"github.com/taqboz/tombo-gdn/internal/app/tombo-gdn/pkg"
 )
 
 // ベージ内のコンテンツ重複チェック

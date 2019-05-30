@@ -1,4 +1,4 @@
-# tombo
+# Tombo for GDN
 ## 概要
 [taqboz/tombo: WEBサイトのmeta情報、bodyの中身を高速でチェックするツール](https://github.com/taqboz/tombo/)のガーディアン社員向け改修版です。<br>
 ホームページ制作後の品質チェック用CLIです。<br>

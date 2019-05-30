@@ -9,11 +9,11 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/taqboz/tombo/cli/target"
-	"github.com/taqboz/tombo/cli/view"
-	"github.com/taqboz/tombo/cli/check"
-	"github.com/taqboz/tombo/cli/config"
-	"github.com/taqboz/tombo/internal/app/tombo/pkg"
+	"github.com/taqboz/tombo-gdn/cli/check"
+	"github.com/taqboz/tombo-gdn/cli/config"
+	"github.com/taqboz/tombo-gdn/cli/target"
+	"github.com/taqboz/tombo-gdn/cli/view"
+	"github.com/taqboz/tombo-gdn/internal/app/tombo-gdn/pkg"
 )
 
 var mtCont, mtLink *sync.Mutex
@@ -44,24 +44,6 @@ func process(o string) error {
 					// エラーコンテンツの調査
 					err := contents(doc, v2)
 					if err != nil {
-						return err
-					}
-
-				case "links":
-					// エラーリンクの調査
-					err := link(doc, v2)
-					if err != nil {
-						return err
-					}
-
-				case "all":
-					err := contents(doc, v2)
-					if err != nil {
-						return err
-					}
-
-					err2 := link(doc, v2)
-					if err2 != nil {
 						return err
 					}
 
@@ -108,21 +90,5 @@ func contents(doc *goquery.Document, v string) error {
 	mtCont.Lock()
 	check.ErrContsList = append(check.ErrContsList, c)
 	mtCont.Unlock()
-	return nil
-}
-
-func link(doc *goquery.Document, v string) error {
-	c, err := check.ErrCheckLink(doc)
-	if c != nil {
-		return err
-	}
-
-	l := &check.ErrLinks{URL: v, ErrLink: c}
-	if len(l.ErrLink) > 0 {
-		mtLink.Lock()
-		check.ErrLinksList = append(check.ErrLinksList, l)
-		mtLink.Unlock()
-	}
-
 	return nil
 }

@@ -5,9 +5,9 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 
-	"github.com/taqboz/tombo/cli/config"
-	"github.com/taqboz/tombo/cli/target"
-	"github.com/taqboz/tombo/internal/app/tombo/pkg"
+	"github.com/taqboz/tombo-gdn/cli/config"
+	"github.com/taqboz/tombo-gdn/cli/target"
+	"github.com/taqboz/tombo-gdn/internal/app/tombo-gdn/pkg"
 )
 
 var MutexDuplicate = &sync.Mutex{}

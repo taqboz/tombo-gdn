@@ -8,7 +8,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 
-	"github.com/taqboz/tombo/cli/config"
+	"github.com/taqboz/tombo-gdn/cli/config"
 )
 
 func TestErrCheckContents(t *testing.T) {

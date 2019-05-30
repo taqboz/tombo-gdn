@@ -1,4 +1,4 @@
-package tombo
+package tombo_gdn
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/taqboz/tombo/cli"
+	"github.com/taqboz/tombo-gdn/cli"
 )
 
 func Main() {

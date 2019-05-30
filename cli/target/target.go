@@ -4,7 +4,7 @@ import (
 	"errors"
 	"log"
 
-	"github.com/taqboz/tombo/internal/app/tombo/regex"
+	"github.com/taqboz/tombo-gdn/internal/app/tombo-gdn/regex"
 )
 
 	// チェック対象

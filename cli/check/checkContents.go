@@ -2,7 +2,7 @@ package check
 
 import (
 	"github.com/PuerkitoBio/goquery"
-	"github.com/taqboz/tombo/cli/config"
+	"github.com/taqboz/tombo-gdn/cli/config"
 )
 
 // ページごとエラーコンテンツの調査

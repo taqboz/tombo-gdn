@@ -5,7 +5,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 
-	"github.com/taqboz/tombo/internal/app/tombo/pkg"
+	"github.com/taqboz/tombo-gdn/internal/app/tombo-gdn/pkg"
 )
 
 	// URLのリスト
@@ -23,7 +23,7 @@ func GetPageDirectory() error {
 		if err := getFromXml(doc); err!= nil {
 			return err
 		}
-		
+
 	case 530:
 		return errors.New("access to "+ Input +", but 503 responce returned, I'll continue check page")
 
