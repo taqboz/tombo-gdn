@@ -52,11 +52,7 @@ func duplicateAll()  {
 					fmt.Println(k+":")
 				})
 				// エラー内容の表示
-				if len(k2) > 150 {
-					fmt.Println(k2[0:150] + "...")
-				} else {
-					fmt.Println(k2 + "|")
-				}
+				fmt.Println(k2 + "|")
 				for _, v3 := range v2 {
 					fmt.Println(v3)
 				}

@@ -64,6 +64,7 @@
       "tag": "meta",
       "target": "content",
       "attr": {
+
         "property": "og:site_name"
       },
       "duplicate_in_page": true,

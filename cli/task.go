@@ -63,6 +63,8 @@ func process(o string) error {
 	}
 
 	view.Result()
+
+	fmt.Println(check.ErrContsList)
 	switch o {
 	case "contents":
 		view.ErrContents()
