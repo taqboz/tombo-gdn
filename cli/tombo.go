@@ -30,24 +30,28 @@ func New() *cli.App {
 		// 取得した情報の表示
 		view.InfoGot()
 
-		switch {
-		case context.Bool("meta"):
-			target.Option = "head > "
-			if err := process("contents"); err != nil {
-				return err
-			}
 
-		case context.Bool("body"):
-			target.Option = "body > "
-			if err := process("contents"); err != nil {
-				return err
-			}
+		// 今後増やす予定のオプション
+		//switch {
+		//case context.Bool("meta"):
+		//	target.Option = "head > "
+		//	if err := process("contents"); err != nil {
+		//		return err
+		//	}
+		//
+		//case context.Bool("body"):
+		//	target.Option = "body > "
+		//	if err := process("contents"); err != nil {
+		//		return err
+		//	}
+		//
+		//default:
 
-		default:
-			if err := process("contents"); err != nil {
-				return err
-			}
+		if err := process("contents"); err != nil {
+			return err
 		}
+
+		//}
 
 		return nil
 	}
@@ -56,14 +60,6 @@ func New() *cli.App {
 		cli.BoolFlag {
 			Name: "",
 			Usage: "check all link in the target website.",
-		},
-		cli.BoolFlag {
-			Name: "meta m",
-			Usage: "check head contents",
-		},
-		cli.BoolFlag {
-			Name: "body b",
-			Usage: "check body contents",
 		},
 	}
 
