@@ -16,7 +16,7 @@ import (
 	"github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
 )
 
-var mtCont, mtLink *sync.Mutex
+var mtCont = &sync.Mutex{}
 
 // エラーコンテンツ、エラーリンク両方のチェック
 func process(o string) error {
@@ -64,7 +64,6 @@ func process(o string) error {
 
 	view.Result()
 
-	fmt.Println(check.ErrContsList)
 	switch o {
 	case "contents":
 		view.ErrContents()
@@ -78,7 +77,7 @@ func process(o string) error {
 
 func contents(doc *goquery.Document, v string) error {
 	c, err := check.ErrCheckContents(v, doc)
-	if c != nil {
+	if err != nil {
 		return err
 	}
 

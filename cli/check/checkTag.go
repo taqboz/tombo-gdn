@@ -29,15 +29,18 @@ func checkTag(doc *goquery.Document, c *config.Tag, url string) (*ErrTag, error)
 	doc.Find(target.Option+c.Tag).Each(func(_ int, s *goquery.Selection) {
 		// タグ内のテキストコンテンツ
 		if attrSpec(c, s) {
+			// テキストコンテンツを取得する場合
 			if c.Target == "" {
 				err2 = checkItem(tag, c, s.Text(), kws, url, dip)
-				// name属性を指定する場合で、属性値を取得する場合
+
+			// 属性値を取得する場合
 			} else {
 				cont, _ := s.Attr(c.Target)
 				err2 = checkItem(tag, c, cont, kws, url, dip)
 			}
 		}
 	})
+
 	if err2 != nil {
 		return nil, err2
 	}
@@ -50,6 +53,7 @@ func checkTag(doc *goquery.Document, c *config.Tag, url string) (*ErrTag, error)
 		}
 	}
 
+	//fmt.Println(tag)
 	return tag, nil
 }
 

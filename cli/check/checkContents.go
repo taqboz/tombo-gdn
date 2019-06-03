@@ -19,8 +19,9 @@ func ErrCheckContents(url string, doc *goquery.Document) (*ErrList, error) {
 		}
 
 		// ページごとのエラーリストに作成したエラーリストを登録
-		list.Tags = append(list.Tags, l)
-
+		if l.IsErr == true {
+			list.Tags = append(list.Tags, l)
+		}
 	}
 
 	return list, nil
