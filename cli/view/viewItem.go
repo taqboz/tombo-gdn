@@ -55,3 +55,24 @@ func duplicate(list map[string]int, msg string) {
 		fmt.Println()
 	}
 }
+
+func useKw(list []*check.ErrUseKw) {
+	var once sync.Once
+	if len(list) > 0 {
+		once.Do(func() {
+			fmt.Println("Use Kws")
+		})
+		for _, v := range list {
+			fmt.Println(v.Content)
+			fmt.Println(v.Kw+":", v.Num)
+		}
+	}
+}
+
+func numMultiple(list *check.NumMultiple) {
+	if list != nil {
+		if list.IsErr {
+			fmt.Println("Numbers:",list.Num)
+		}
+	}
+}

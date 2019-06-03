@@ -90,13 +90,20 @@ func multipleContent(tag *ErrTag, m *config.MultipleContent, cont string) {
 
 		switch {
 		case isMin && isMax && (num < m.Min || num > m.Max):
+			tag.IsErr = true
 			tag.NumMultiple = addErr
 
 		case isMin && num < m.Min:
+			tag.IsErr = true
 			tag.NumMultiple = addErr
 
 		case isMax && num > m.Max:
+			tag.IsErr = true
 			tag.NumMultiple = addErr
+
+		default:
+			tag.IsErr = false
+			tag.NumMultiple = &NumMultiple{false, num}
 		}
 	}
 }

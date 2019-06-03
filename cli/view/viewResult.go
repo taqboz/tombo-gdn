@@ -25,7 +25,8 @@ func ErrContents() {
 				}
 				fmt.Println()
 				cont(v2.Length, "Length")
-				// viewCont(v2.UseKw, "UseKw")
+				useKw(v2.UseKw)
+				numMultiple(v2.NumMultiple)
 				match(v2.Match, "Match：")
 				match(v2.Include, "Include：")
 				duplicate(v2.DuplicateInPage, "Duplicate")

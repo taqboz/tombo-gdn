@@ -87,6 +87,7 @@ func checkItem(tag *ErrTag, c *config.Tag, cont string, keywords []string, url s
 			return err
 		}
 	}
+
 	multipleContent(tag, &c.MultipleContent, cont)
 
 	MutexDuplicate.Lock()

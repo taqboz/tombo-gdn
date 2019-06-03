@@ -43,22 +43,18 @@ func duplicateInContent(tag *ErrTag, m *config.MultipleContent, cont string) err
 
 		for _, v := range contents {
 			if v != "" {
-				ok, err := pkg.IsContain(contents, v)
+				ok, err := pkg.IsDuplicate(contents, v)
 				if err != nil {
 					return err
 				}
 
-				switch {
 				// 初期化
-				case tag.DuplicateInContent == nil:
+				if tag.DuplicateInContent == nil{
 					tag.DuplicateInContent = map[string]int{}
-					fallthrough
+				}
 
-				case ok:
+				if ok {
 					tag.DuplicateInContent[v]++
-					fallthrough
-
-				case tag.DuplicateInContent[v] > 1:
 					tag.IsErr = true
 				}
 			}

@@ -8,14 +8,14 @@ import (
 	"github.com/taqboz/tombo_gdn/cli/config"
 )
 
-func TestDuplicateInpage(t *testing.T) {
+func TestDuplicateInPage(t *testing.T) {
 	tests := []struct {
 		in  []string
 		out map[string]int
 	}{
 		{[]string{"aa", "bb", "aa", "bb", "cc"}, map[string]int{"aa": 2, "bb": 2}},
 		{[]string{"ああ", "いい", "ああ", "ええ"}, map[string]int{"ああ": 2}},
-		{[]string{"aa","ああ","a","bb"}, map[string]int{}},
+		{[]string{"aa","ああ","a","bb"}, nil},
 		{[]string{}, nil},
 	}
 
@@ -27,7 +27,7 @@ func TestDuplicateInpage(t *testing.T) {
 		}
 
 		if !reflect.DeepEqual(v.out, testTag.DuplicateInPage) {
-			t.Fatal("failed test")
+			t.Fatal("failed test", v, testTag.DuplicateInPage)
 		}
 	}
 }
@@ -89,7 +89,7 @@ func TestDuplicate(t *testing.T) {
 			duplicate(v, v2.cont, v2.url)
 		}
 		if !reflect.DeepEqual(ErrDupulicateList, testOut[k]) {
-			t.Fatal("failed test")
+			t.Fatal("failed test", ErrDupulicateList, "\n",/*testOut[k]*/)
 		}
 		ErrDupulicateList = map[string]map[string][]string{}
 	}
