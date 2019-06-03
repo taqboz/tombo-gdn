@@ -6,15 +6,13 @@ import "time"
 var (
 	Tags []*Tag
 	CheckPageParallel int
-	GetLinksParallel int
 	GetLinksTimeSleep time.Duration
 )
 
 type Config struct {
 	CheckPageParallel int `json:"check_page_parallel"`
-	GetLinksParallel int `json:"get_links_parallel"`
 	GetLinksTimeSleep time.Duration `json:"get_links_time_sleep"`
-	Tag []*Tag `json:"tag"`
+	Tag []*Tag `json:"tags"`
 }
 
 // チェック設定の構造体の定義

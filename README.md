@@ -13,8 +13,8 @@ $ go get github.com/taqboz/tombo
 ````
 * Homebrewを扱う場合
 ````
-$ brew tap taqboz/tombo-gdn
-$ brew install tombo-gdn
+$ brew tap taqboz/tombo_gdn
+$ brew install tombo_gdn
 ````
 * ビルド済みデータ：<br>以下のリンクからダウンロードしてください 
 

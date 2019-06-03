@@ -7,7 +7,7 @@ import (
 
 	"github.com/PuerkitoBio/goquery"
 
-	"github.com/taqboz/tombo-gdn/cli/config"
+	"github.com/taqboz/tombo_gdn/cli/config"
 )
 
 var Count int

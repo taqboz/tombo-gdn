@@ -3,8 +3,8 @@ package cli
 import (
 	"github.com/urfave/cli"
 
-	"github.com/taqboz/tombo-gdn/cli/target"
-	"github.com/taqboz/tombo-gdn/cli/view"
+	"github.com/taqboz/tombo_gdn/cli/target"
+	"github.com/taqboz/tombo_gdn/cli/view"
 )
 
 const version = "0.1.2"
@@ -12,7 +12,7 @@ const version = "0.1.2"
 func New() *cli.App {
 	app := cli.NewApp()
 
-	app.Name = "tombo-gdn"
+	app.Name = "tombo_gdn"
 	app.Usage = "This app check website's error information."
 	app.Version = version
 
@@ -31,12 +31,7 @@ func New() *cli.App {
 		view.InfoGot()
 
 		switch {
-		case context.Bool("content"):
-			if err := process("contents"); err != nil {
-				return err
-			}
-
-		case context.Bool("head"):
+		case context.Bool("meta"):
 			target.Option = "head > "
 			if err := process("contents"); err != nil {
 				return err
@@ -49,7 +44,7 @@ func New() *cli.App {
 			}
 
 		default:
-			if err := process("all"); err != nil {
+			if err := process("contents"); err != nil {
 				return err
 			}
 		}
@@ -59,19 +54,15 @@ func New() *cli.App {
 
 	app.Flags = []cli.Flag{
 		cli.BoolFlag {
-			Name: "link, l",
+			Name: "",
 			Usage: "check all link in the target website.",
 		},
 		cli.BoolFlag {
-			Name: "content, c",
-			Usage: "check contents in the target website.",
-		},
-		cli.BoolFlag {
-			Name: "head h",
+			Name: "meta m",
 			Usage: "check head contents",
 		},
 		cli.BoolFlag {
-			Name: "body h",
+			Name: "body b",
 			Usage: "check body contents",
 		},
 	}

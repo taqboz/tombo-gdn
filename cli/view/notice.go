@@ -3,7 +3,7 @@ package view
 import (
 	"fmt"
 
-	"github.com/taqboz/tombo/cli/target"
+	"github.com/taqboz/tombo_gdn/cli/target"
 )
 
 const split string = "\n###############################################################################\n"

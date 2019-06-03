@@ -1,7 +1,6 @@
 {
   "check_page_parallel": 10,
   "get_links_parallel": 10,
-  "get_links_time_sleep": 1,
   "retry_at_err": 1000,
 
   "tags":[

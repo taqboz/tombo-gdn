@@ -5,7 +5,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/taqboz/tombo-gdn/cli/config"
+	"github.com/taqboz/tombo_gdn/cli/config"
 )
 
 func TestLength(t *testing.T) {

@@ -9,11 +9,11 @@ import (
 	"github.com/pkg/errors"
 	"golang.org/x/sync/errgroup"
 
-	"github.com/taqboz/tombo-gdn/cli/check"
-	"github.com/taqboz/tombo-gdn/cli/config"
-	"github.com/taqboz/tombo-gdn/cli/target"
-	"github.com/taqboz/tombo-gdn/cli/view"
-	"github.com/taqboz/tombo-gdn/internal/app/tombo-gdn/pkg"
+	"github.com/taqboz/tombo_gdn/cli/check"
+	"github.com/taqboz/tombo_gdn/cli/config"
+	"github.com/taqboz/tombo_gdn/cli/target"
+	"github.com/taqboz/tombo_gdn/cli/view"
+	"github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
 )
 
 var mtCont, mtLink *sync.Mutex
@@ -44,7 +44,7 @@ func process(o string) error {
 					// エラーコンテンツの調査
 					err := contents(doc, v2)
 					if err != nil {
-						return err
+						fmt.Println(v2)
 					}
 
 				default:
@@ -66,13 +66,6 @@ func process(o string) error {
 	switch o {
 	case "contents":
 		view.ErrContents()
-
-	case "links":
-		view.ErrLinks()
-
-	case "all":
-		view.ErrContents()
-		view.ErrLinks()
 
 	default:
 		log.Fatal("this option is error")

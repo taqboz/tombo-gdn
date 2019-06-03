@@ -4,8 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/taqboz/tombo/cli/check"
-	"github.com/taqboz/tombo/internal/app/tombo/pkg"
+	"github.com/taqboz/tombo_gdn/cli/check"
 )
 
 func ErrContents() {
@@ -65,20 +64,4 @@ func duplicateAll()  {
 			}
 		}
 	}
-}
-
-// リンクのエラー内容の表示
-func ErrLinks() {
-	fmt.Println("\n" + "### Error Links ###")
-	for _, v := range check.ErrLinksList{
-		fmt.Println(v.URL)
-		for _, v2 := range v.ErrLink {
-			// エラー内容の表示
-			fmt.Println(">", v2.URL, ":", v2.Status)
-		}
-		fmt.Println()
-	}
-
-	fmt.Println("access:", pkg.Count)
-	defer fmt.Println("Errors are ditected from pages:", len(check.ErrLinksList), "page")
 }

@@ -6,7 +6,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/taqboz/tombo-gdn/cli"
+	"github.com/taqboz/tombo_gdn/cli"
 )
 
 func Main() {

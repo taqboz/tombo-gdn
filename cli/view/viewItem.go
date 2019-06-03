@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/taqboz/tombo/cli/check"
+	"github.com/taqboz/tombo_gdn/cli/check"
 )
 
 // 文字数、キーワードの使用回数のエラー内容の表示

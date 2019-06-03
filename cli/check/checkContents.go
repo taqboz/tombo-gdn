@@ -2,7 +2,7 @@ package check
 
 import (
 	"github.com/PuerkitoBio/goquery"
-	"github.com/taqboz/tombo-gdn/cli/config"
+	"github.com/taqboz/tombo_gdn/cli/config"
 )
 
 // ページごとエラーコンテンツの調査
@@ -12,7 +12,7 @@ func ErrCheckContents(url string, doc *goquery.Document) (*ErrList, error) {
 
 	// 設定ファイルを元にスクレイピングを行う
 	for _, c := range config.Tags {
-			// タグ毎に調査を行いエラーリストを作成
+		// タグ毎に調査を行いエラーリストを作成
 		l, err := checkTag(doc, c, url)
 		if err != nil {
 			return nil, err

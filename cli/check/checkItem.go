@@ -1,11 +1,12 @@
 package check
 
 import (
+	"golang.org/x/exp/utf8string"
 	"regexp"
 	"strings"
 	"unicode/utf8"
 
-	"github.com/taqboz/tombo-gdn/cli/config"
+	"github.com/taqboz/tombo_gdn/cli/config"
 )
 
 // 文字列の長さのエラーの確認
@@ -65,7 +66,8 @@ func omission(cont string) string {
 		return cont
 	}
 
-	return string([]rune(cont)[0:50]) + "..."
+	cont2 := utf8string.NewString(cont)
+	return cont2.Slice(0, 50) + "..."
 }
 
 func multipleContent(tag *ErrTag, m *config.MultipleContent, cont string) {
