@@ -13,7 +13,7 @@ import (
 
 func Main() {
 	// 実行
-	var sc = bufio.NewScanner(os.Stdin)
+	sc := bufio.NewScanner(os.Stdin)
 	input := os.Args
 	if len(input) == 1 {
 		fmt.Println("[半角スペース] or ｢--｣ + [サイトマップ]で入力してください。")
@@ -37,4 +37,10 @@ func Main() {
 	// 時間測定終了
 	af := time.Now()
 	fmt.Println(af.Sub(bf))
+
+	// 終了
+	exit := bufio.NewScanner(os.Stdin)
+	fmt.Print("\n\n終了するにはEnterキーを押してください")
+	exit.Scan()
+	os.Exit(0)
 }

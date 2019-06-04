@@ -7,4 +7,5 @@ import (
 func main() {
 	// 実行
 	tombo_gdn.Main()
+
 }
