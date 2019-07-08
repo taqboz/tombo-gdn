@@ -2,6 +2,7 @@ package target
 
 import (
 	"github.com/PuerkitoBio/goquery"
+	"github.com/taqboz/tombo_gdn/cli/config"
 	"github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
 	"net/url"
 	"sort"
@@ -27,7 +28,10 @@ func GetPaths(doc *goquery.Document) error {
 		if err != nil {
 			return err
 		}
-		PageList = append(PageList, p)
+
+		if !pkg.IsContain(config.Ignore.IgnorePaths, u.Path) {
+			PageList = append(PageList, p)
+		}
 	}
 
 	sort.Strings(PathList)

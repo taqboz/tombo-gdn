@@ -1,19 +1,15 @@
 package pkg
 
-import (
-	"errors"
-)
-
 // 要素がスライスに含まれているかの確認
-func IsContain(s []string, e string) (bool, error) {
+func IsContain(s []string, e string) bool {
 	if s == nil {
-		return false, errors.New("slice is nil")
+		return false
 	}
 
 	for _, v := range s {
 		if e == v {
-			return true, nil
+			return true
 		}
 	}
-	return false, nil
+	return false
 }
