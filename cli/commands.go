@@ -5,6 +5,7 @@ import (
 	"github.com/taqboz/tombo_gdn/cli/config"
 	"github.com/taqboz/tombo_gdn/cli/request"
 	"github.com/taqboz/tombo_gdn/cli/target"
+	"github.com/taqboz/tombo_gdn/cli/ui"
 	"golang.org/x/sync/errgroup"
 )
 
@@ -43,6 +44,6 @@ func check(input string) error {
 		return err
 	}
 
-
+	ui.Finish()
 	return nil
 }
