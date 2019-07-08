@@ -2,7 +2,10 @@ package cli
 
 import "github.com/urfave/cli"
 
-const version = "0.2.0"
+const (
+	version = "0.2.0"
+	author = "taqboz"
+)
 
 func New() *cli.App {
 	app := cli.NewApp()
@@ -11,7 +14,7 @@ func New() *cli.App {
 	app.Usage = "This app check website's error information."
 
 	app.Version = version
-	app.Author = "taqboz"
+	app.Author = author
 
 	app.Commands = []cli.Command{
 		{
