@@ -1,6 +1,8 @@
-package http
+package pkg
 
-import "net/url"
+import (
+	"net/url"
+)
 
 // ページURLかどうか確認
 func IsURL(input string) (bool, error) {

@@ -1,4 +1,4 @@
-package http
+package pkg
 
 import (
 	"fmt"
@@ -17,7 +17,10 @@ func TestResolveURL(t *testing.T) {
 		out string
 	}{
 		{url{"http://example.com/", ""}, "http://example.com/"},
-		{url{"http://example.com/abc", ""}, "http://example.com/abc"},
+		{url{"http://example.com/", "/abc"}, "http://example.com/abc"},
+		{url{"http://example.com", "abc.xml"}, "http://example.com/abc.xml"},
+		{url{"http://yoshida-asteer-ver3.gdn.owlet.work/", "sitemap.xml"}, "http://yoshida-asteer-ver3.gdn.owlet.work/sitemap.xml"},
+
 	}
 
 	for k, v := range tests {
@@ -27,6 +30,7 @@ func TestResolveURL(t *testing.T) {
 			os.Exit(1)
 		}
 
+		fmt.Println(result)
 		if result != v.out {
 			err := fmt.Errorf("Input: %v |test %d",v.in, k)
 			fmt.Printf("Test.out: %s\n", v.out)

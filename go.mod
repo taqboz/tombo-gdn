@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/PuerkitoBio/goquery v1.5.0
+	github.com/go-ini/ini v1.44.0
 	github.com/pkg/errors v0.8.1
 	github.com/urfave/cli v1.20.0
 	golang.org/x/exp v0.0.0-20190510132918-efd6b22b2522
