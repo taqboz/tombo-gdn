@@ -9,8 +9,8 @@ type BasicAuthList struct {
 
 var BasicAuth  BasicAuthList
 
-func AuthInit() error {
-	cfg, err := ini.Load("config/auth.ini")
+func AuthInit(file string) error {
+	cfg, err := ini.Load(file)
 	if err != nil {
 		return err
 	}

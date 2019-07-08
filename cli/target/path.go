@@ -1,7 +1,6 @@
 package target
 
 import (
-	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
 	"net/url"
@@ -13,6 +12,7 @@ var (
 	PageList = []string{}
 )
 
+// 調査対象のページを読み込む
 func GetPaths(doc *goquery.Document) error {
 	l := pkg.Scraping(doc, "loc","", nil)
 	for _, v := range l {
@@ -31,8 +31,6 @@ func GetPaths(doc *goquery.Document) error {
 	}
 
 	sort.Strings(PathList)
-
-	fmt.Println(PathList)
 
 	return nil
 }

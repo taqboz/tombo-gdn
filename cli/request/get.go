@@ -7,13 +7,13 @@ import (
 	"net/http"
 )
 
+// 基本認証付きGETリクエスト
 func GetRequestBasicAuth(s string) (*goquery.Document, error) {
 	req, err := http.NewRequest("GET", s, nil)
 	if err != nil {
 		return nil, err
 	}
 
-	config.AuthInit()
 	req = pkg.BasicAuth(req, config.BasicAuth.UserName, config.BasicAuth.Passwords)
 
 	res, err := pkg.DoRequest(req)

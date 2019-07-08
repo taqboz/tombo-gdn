@@ -1,9 +1,9 @@
 {
-  "paths":[
+  "ignore_paths":[
 
   ],
 
-  "tags":[
+  "ignore_tags":[
 
   ]
 }
