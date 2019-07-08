@@ -16,14 +16,15 @@ func check(input string) error {
 	var eg errgroup.Group
 
 	for _, v := range target.PageList {
+		v2 := v
 		eg.Go(func() error {
-			doc, err := request.GetRequestBasicAuth(v)
+			doc, err := request.GetRequestBasicAuth(v2)
 			if err != nil{
 				return err
 			}
 
 			if doc != nil {
-				fmt.Println(v)
+				fmt.Println(v2)
 			}
 
 			return nil
