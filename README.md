@@ -10,12 +10,12 @@
 * ソースコードを直接扱う場合
 ````
 $ go get github.com/taqboz/tombo
+# もしくは
+$ git clone https://github.com/taqboz/tombo_gdn.git
+
+$ go build
 ````
-* Homebrewを扱う場合
-````
-$ brew tap taqboz/tombo_gdn
-$ brew install tombo_gdn
-````
+
 * ビルド済みデータ：<br>以下のリンクからダウンロードしてください<br>
 [【Dropbox】tombo_gdn (Windows 64bit)](https://www.dropbox.com/s/0qhxq3cos52tp4n/tombo_gdn.zip?dl=0)
 
