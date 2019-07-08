@@ -34,7 +34,7 @@ func common(input string) error {
 
 func loadConfig() error {
 	// 基本認証の設定
-	if err := config.AuthInit("config/auth.ini"); err != nil {
+	if err := config.LoadInit("config/config.ini"); err != nil {
 		return nil
 	}
 

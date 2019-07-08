@@ -7,9 +7,12 @@ type BasicAuthList struct {
 	Passwords string
 }
 
-var BasicAuth  BasicAuthList
+var (
+	BasicAuth  BasicAuthList
+	SimultaneousAccess int
+)
 
-func AuthInit(file string) error {
+func LoadInit(file string) error {
 	cfg, err := ini.Load(file)
 	if err != nil {
 		return err
@@ -19,6 +22,12 @@ func AuthInit(file string) error {
 		UserName: cfg.Section("basic_auth").Key("username").String(),
 		Passwords: cfg.Section("basic_auth").Key("passwords").String(),
 	}
+
+	SimultaneousAccess, err = cfg.Section("simultaneous_access").Key("num").Int()
+	if err != nil {
+		return err
+	}
+
 
 	return nil
 }
