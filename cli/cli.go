@@ -18,9 +18,9 @@ func New() *cli.App {
 
 	app.Commands = []cli.Command{
 		{
-			Name: "check",
-			Aliases: []string{"c"},
-			Usage: "check all contents in website",
+			Name: "seo",
+			Aliases: []string{"s"},
+			Usage: "各ページのSEOコンテンツのチェック",
 			Action: func(c *cli.Context) error {
 				if err := check(c.Args().First()); err != nil {
 					return err
