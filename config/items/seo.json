@@ -1,29 +1,33 @@
-{
-  "items": [
-    {
-      "tag": "title",
-      "target": "",
-      "length":{"check": "max", "min": 0, "max": 28},
-      "use_kws":{"check": "all", "min": 1, "max": 1}
-    },
-    {
-      "tag": "meta",
-      "target": "content",
-      "attr": {"name": "description"},
-      "length":{"check": "all", "mix": 0, "max": 28},
-      "use_kws":{"check": "all", "min": 1, "max": 2}
-    },
-    {
-      "tag": "meta",
-      "target": "content",
-      "multiple_contents": {"is_multiple": true, "bp": ","},
-      "multiple_num": {"check": "all", "min": 2, "max": 7},
-      "attr": {"name": "keywords"}
-    },
-    {
-      "tag": "h1",
-      "target": "",
-      "use_kws":{"check": "all", "min": 1, "max": 1}
-    }
-  ]
-}
+[
+  {
+    "tag": "title",
+    "length":{"check": "max", "min": 0, "max": 28},
+    "use_kws":{"check": "all", "min": 1, "max": 1},
+    "not_permit": [""],
+    "not_include": ["サンプルテキスト"]
+  },
+  {
+    "tag": "meta",
+    "target": "content",
+    "attr": {"name": "description"},
+    "length":{"check": "all", "mix": 0, "max": 28},
+    "use_kws":{"check": "all", "min": 1, "max": 2},
+    "not_permit": [""],
+    "not_include": ["サンプルテキスト"]
+  },
+  {
+    "tag": "meta",
+    "target": "content",
+    "multiple_contents": {"is_multiple": true, "bp": ","},
+    "multiple_num": {"check": "all", "min": 2, "max": 7},
+    "attr": {"name": "keywords"},
+    "not_permit": [""],
+    "not_include": ["サンプルテキスト"]
+  },
+  {
+    "tag": "h1",
+    "use_kws":{"check": "all", "min": 1, "max": 1},
+    "not_permit": [""],
+    "not_include": ["サンプルテキスト"]
+  }
+]

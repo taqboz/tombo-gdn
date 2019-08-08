@@ -22,7 +22,7 @@ func New() *cli.App {
 			Aliases: []string{"s"},
 			Usage: "各ページのSEOコンテンツのチェック",
 			Action: func(c *cli.Context) error {
-				if err := check(c.Args().First()); err != nil {
+				if err := seo(c.Args().First()); err != nil {
 					return err
 				}
 				return nil

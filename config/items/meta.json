@@ -1,17 +1,15 @@
-{
-  "items": [
-    {
-      "tag": "meta",
-      "target": "content",
-      "attr": {"property": "og:image"},
-      "not_permit": [""],
-      "not_include": ["ドメイン"]
-    },
-    {
-      "tag": "meta",
-      "target": "content",
-      "attr": {"property": "og:site_name"},
-      "not_permit": [""]
-    }
-  ]
-}
+[
+  {
+    "tag": "meta",
+    "target": "content",
+    "attr": {"property": "og:image"},
+    "not_permit": [""],
+    "not_include": ["ドメイン"]
+  },
+  {
+    "tag": "meta",
+    "target": "content",
+    "attr": {"property": "og:site_name"},
+    "not_permit": [""]
+  }
+]

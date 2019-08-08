@@ -1,9 +1,7 @@
-{
-  "items": [
-    {
-      "tag": "img",
-      "target": "alt",
-      "not_permit": ["サンプルテキスト", ""]
-    }
-  ]
-}
+[
+  {
+    "tag": "img",
+    "target": "alt",
+    "not_permit": ["サンプルテキスト", ""]
+  }
+]
