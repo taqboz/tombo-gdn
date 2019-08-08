@@ -24,38 +24,29 @@ func common(s string, i int, c config.CheckLength) *NumIncorrect {
 	return nil
 }
 
-func Length(s string, c config.CheckLength, l []*NumIncorrect) []*NumIncorrect {
+func Length(s string, c config.CheckLength) *NumIncorrect {
 	i := utf8.RuneCountInString(s)
 	add := common(s, i, c)
-	if add != nil {
-		l = append(l, add)
-	}
 
-	return l
+	return add
 }
 
-func UseKws(s string, c config.CheckLength, l []*NumIncorrectList, kws []string) []*NumIncorrectList {
+func UseKws(s string, c config.CheckLength, kws []string) *NumIncorrectList {
 	add := &NumIncorrectList{s,[]*NumIncorrect{}}
 	for _, v := range kws {
 		i := strings.Count(s, v)
-		cont := common(s, i, c)
+		cont := common(v, i, c)
 		if cont != nil {
 			add.Incorrect = append(add.Incorrect, cont)
 		}
 	}
 
-	if len(add.Incorrect) > 0 {
-		l = append(l, add)
-	}
-
-	return l
+	return add
 }
 
-func MultipleCount(s string, c config.CheckLength, l []*NumIncorrect, split string) []*NumIncorrect {
+func MultipleCount(s string, c config.CheckLength, split string) *NumIncorrect {
 	i := len(strings.Split(s, split))
 	add := common(s, i, c)
-	if add.Length > 0 {
-		l = append(l, add)
-	}
-	return l
+
+	return add
 }

@@ -20,6 +20,11 @@ type NumIncorrect struct {
 	Length int
 }
 
+type NumIncorrectList struct {
+	Content string
+	Incorrect []*NumIncorrect
+}
+
 type StrIncorrect struct {
 	Content string
 	Match []string

@@ -11,4 +11,13 @@ func Duplicate(s []string, c string) bool {
 	return false
 }
 
+func RemoveDuplicate(s []string) []string {
+	l := []string{}
+	for _, v := range s {
+		if !Duplicate(l, v) {
+			l = append(l, v)
+		}
+	}
 
+	return l
+}

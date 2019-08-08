@@ -2,7 +2,7 @@ package check
 
 import "strings"
 
-func NotPermit(s string, c []string, l []*StrIncorrect) []*StrIncorrect {
+func NotPermit(s string, c []string) *StrIncorrect {
 	add := &StrIncorrect{s, []string{}}
 	for _, v := range c {
 		if v == s {
@@ -10,14 +10,14 @@ func NotPermit(s string, c []string, l []*StrIncorrect) []*StrIncorrect {
 		}
 	}
 
-	if len(add.Match) > 0 {
-		l = append(l, add)
-	}
+	//if len(add.Match) > 0 {
+	//	l = append(l, add)
+	//}
 
-	return l
+	return add
 }
 
-func NotInclude(s string, c []string, l []*NumIncorrectList) []*NumIncorrectList {
+func NotInclude(s string, c []string) *NumIncorrectList {
 	add := &NumIncorrectList{s,[]*NumIncorrect{}}
 	for _, v := range c {
 		n := strings.Count(s, v)
@@ -27,10 +27,10 @@ func NotInclude(s string, c []string, l []*NumIncorrectList) []*NumIncorrectList
 		}
 	}
 
-	if len(add.Incorrect) > 0 {
-		l = append(l, add)
-	}
+	//if len(add.Incorrect) > 0 {
+	//	l = append(l, add)
+	//}
 
-	return l
+	return add
 }
 
