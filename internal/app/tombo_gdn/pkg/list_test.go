@@ -2,7 +2,6 @@ package pkg
 
 import (
 	"fmt"
-	"log"
 	"strconv"
 	"testing"
 )
@@ -22,10 +21,7 @@ func TestIsContain(t *testing.T) {
 	}
 
 	for i, test := range tests {
-		result, err := IsContain(test.in, test.in2)
-		if err != nil {
-			log.Fatal(err)
-		}
+		result := IsContain(test.in, test.in2)
 
 		if result != test.out {
 			fmt.Println(result)

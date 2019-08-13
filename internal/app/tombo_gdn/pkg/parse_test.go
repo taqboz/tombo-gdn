@@ -30,7 +30,6 @@ func TestResolveURL(t *testing.T) {
 			os.Exit(1)
 		}
 
-		fmt.Println(result)
 		if result != v.out {
 			err := fmt.Errorf("Input: %v |test %d",v.in, k)
 			fmt.Printf("Test.out: %s\n", v.out)

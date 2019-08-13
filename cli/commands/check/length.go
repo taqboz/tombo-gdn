@@ -2,51 +2,82 @@ package check
 
 import (
 	"github.com/taqboz/tombo_gdn/cli/config"
+	"github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
 	"strings"
 	"unicode/utf8"
 )
 
-func common(s string, i int, c config.CheckLength) *NumIncorrect {
-	var isIncorrect bool
+func common(i int, c config.CheckLength) *LengthIncorrect {
+	var sts string
+	var dif int
 	switch c.Check {
 	case "all":
-		isIncorrect = i < c.Min || i > c.Max
+		if i < c.Min {
+			sts = "not enough"
+			dif = c.Min - i
+		} else if i > c.Max {
+			sts = "over"
+			dif = i - c.Max
+		}
 	case "min":
-		isIncorrect = i < c.Min
+		if i < c.Min {
+			sts = "not enough"
+			dif = c.Min - i
+		}
 	case "max":
-		isIncorrect = i > c.Max
+		if i > c.Max {
+			sts = "over"
+			dif = i - c.Max
+		}
 	}
 
-	if isIncorrect {
-		return &NumIncorrect{s,i}
+	if sts != "" {
+		return &LengthIncorrect{i,sts, dif}
 	}
 
 	return nil
 }
 
-func Length(s string, c config.CheckLength) *NumIncorrect {
+func Length(s string, c config.CheckLength) *LengthIncorrect {
 	i := utf8.RuneCountInString(s)
-	add := common(s, i, c)
+	add := common(i, c)
 
 	return add
 }
 
-func UseKws(s string, c config.CheckLength, kws []string) *NumIncorrectList {
-	add := &NumIncorrectList{s,[]*NumIncorrect{}}
+func UseKws(s string, c config.CheckLength, kws []string) []*LengthIncorrectCont {
+	add := []*LengthIncorrectCont{}
 	for _, v := range kws {
 		i := strings.Count(s, v)
-		cont := common(v, i, c)
+		cont := common(i, c)
 		if cont != nil {
-			add.Incorrect = append(add.Incorrect, cont)
+			addCont := &LengthIncorrectCont{s,cont}
+			add = append(add, addCont)
 		}
 	}
 
 	return add
 }
 
-func MultipleCount(s string, c config.CheckLength, split string) *NumIncorrect {
-	i := len(strings.Split(s, split))
-	add := common(s, i, c)
+func MultipleNum(s string, c config.MultipleLength) *LengthIncorrect {
+	i := len(strings.Split(s, c.Split))
+	conf := config.CheckLength{c.Check,c.Min,c.Max}
+	add := common(i, conf)
+
+	return add
+}
+
+func MultipleDup(s string, c config.MultipleLength) []*NumIncorrect {
+	add := []*NumIncorrect{}
+	agr := strings.Split(s, c.Split)
+	l := pkg.RemoveDuplicate(agr)
+	for _, v := range l {
+		n := DuplicateNum(v, agr)
+		if n > 1 {
+			cont := &NumIncorrect{v, n}
+			add = append(add, cont)
+		}
+	}
 
 	return add
 }

@@ -1,20 +1,14 @@
 package check
 
-import (
-	"github.com/taqboz/tombo_gdn/cli/config"
-	"github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
-	"strings"
-)
+import "github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
 
-func MultipleDuplicate(s string, c config.CheckLength, split string) *NumIncorrectList {
-	add := &NumIncorrectList{s,[]*NumIncorrect{}}
-	agr := strings.Split(s, split)
-	l := pkg.RemoveDuplicate(agr)
-	for _, v := range l {
-		n := DuplicateNum(v, agr)
+func Duplicate(s []string) []*NumIncorrect {
+	add := []*NumIncorrect{}
+	agr := pkg.RemoveDuplicate(s)
+	for _, v := range agr {
+		n := DuplicateNum(v, s)
 		if n > 1 {
-			cont := &NumIncorrect{v, n}
-			add.Incorrect = append(add.Incorrect, cont)
+			add = append(add, &NumIncorrect{v, n})
 		}
 	}
 

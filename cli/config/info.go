@@ -14,12 +14,21 @@ type CheckItem struct {
 	UseKws CheckLength `json:"use_kws"`
 	NotPermit []string `json:"not_permit"`
 	NotInclude []string `json:"not_include"`
+	MultipleNum MultipleLength `json:"multiple_num"`
+	MultipleDup MultipleLength  `json:"multiple_dup"`
 }
 
 type CheckLength struct {
 	Check string `json:"check"`
 	Min int `json:"min"`
 	Max int `json:"max"`
+}
+
+type MultipleLength struct {
+	Check string `json:"check"`
+	Min int `json:"min"`
+	Max int `json:"max"`
+	Split string `json:"split"`
 }
 
 func CheckInit(file string) ([]CheckItem, error) {
