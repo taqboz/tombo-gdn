@@ -1,7 +1,0 @@
-[
-  {
-    "tag": "img",
-    "target": "alt",
-    "not_permit": ["サンプルテキスト", ""]
-  }
-]

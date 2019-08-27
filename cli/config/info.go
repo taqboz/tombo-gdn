@@ -2,13 +2,12 @@ package config
 
 import (
 	"encoding/json"
-	"github.com/taqboz/tombo_gdn/internal/app/tombo_gdn/pkg"
 	"io/ioutil"
 )
 
 type CheckItem struct {
 	Tag string `json:"tag"`
-	Target string `json:"target"`
+	Target string `json:"info"`
 	Attr map[string]string `json:"attr"`
 	Length CheckLength `json:"length"`
 	UseKws CheckLength `json:"use_kws"`
@@ -42,19 +41,5 @@ func CheckInit(file string) ([]CheckItem, error) {
 		return nil, err
 	}
 
-	conf := ignoreTags(l)
-
-	return conf, nil
-}
-
-
-func ignoreTags(bf []CheckItem) []CheckItem {
-	af := []CheckItem{}
-	for _, v := range bf {
-		 if !pkg.IsContain(Ignore.IgnoreTags, v.Tag) {
-		 	af = append(af, v)
-		 }
-	}
-
-	return af
+	return l, nil
 }

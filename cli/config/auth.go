@@ -28,6 +28,5 @@ func LoadInit(file string) error {
 		return err
 	}
 
-
 	return nil
 }

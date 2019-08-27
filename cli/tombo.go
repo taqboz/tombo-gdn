@@ -18,11 +18,11 @@ func New() *cli.App {
 
 	app.Commands = []cli.Command{
 		{
-			Name: "seo",
-			Aliases: []string{"s"},
-			Usage: "各ページのSEOコンテンツのチェック",
+			Name: "check",
+			Aliases: []string{"c"},
+			Usage: "すべての項目のチェック（リンクの有効性、SEO設定）",
 			Action: func(c *cli.Context) error {
-				if err := seo(c.Args().First()); err != nil {
+				if err := check(c.Args().First()); err != nil {
 					return err
 				}
 				return nil

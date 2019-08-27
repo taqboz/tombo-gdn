@@ -12,10 +12,10 @@ func IsURL(input string) (bool, error) {
 	}
 
 	if u.Scheme != "" && u.Host != "" {
-		return true, nil
+		return false, nil
 	}
 
-	return false, nil
+	return true, nil
 }
 
 // 相対リンクを絶対リンクにする処理
