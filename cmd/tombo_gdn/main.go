@@ -22,8 +22,8 @@ func Main() {
 		//fmt.Println("--body, -b   body要素のみチェックを行います")
 		fmt.Println("※「-help」もしくは「-h] + と入力するとヘルプを表示します")
 		fmt.Println("----------------------------------------------------------")
-		fmt.Println("例: -- https://guardian.jpn.com/sitemap.xml")
-		fmt.Print("Please Enter -[Option] [Sitemap's URL]: ")
+		fmt.Println("例: -- https://guardian.jpn.com/")
+		fmt.Print("Please Enter -[Option] [URL]: ")
 		sc.Scan()
 		input = strings.Split(sc.Text(), " ")
 	}

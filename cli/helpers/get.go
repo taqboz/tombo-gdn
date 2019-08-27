@@ -37,23 +37,6 @@ func GetRequestBasicAuth(s string) (*goquery.Document, int, error) {
 
 }
 
-func GetStatusBasicAuth(s string) (int, error) {
-	req, err := http.NewRequest("GET", s, nil)
-	if err != nil {
-		return 0,  err
-	}
-
-	req = pkg.BasicAuth(req, config.BasicAuth.UserName, config.BasicAuth.Passwords)
-
-	res, err := pkg.DoRequest(req)
-	if err != nil {
-		return 0, err
-	}
-	defer res.Body.Close()
-
-	return res.StatusCode, nil
-}
-
 func ScrapingPath(doc *goquery.Document) []string {
 	l := make([]string, 0)
 

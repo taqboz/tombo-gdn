@@ -32,7 +32,7 @@ func AddPath(path *Path) {
 		}
 	}
 	CheckedPaths = append(CheckedPaths, path)
-	fmt.Println("add" , path.Path)
+	fmt.Println("index:" , path.Path)
 	MtxChecked.Unlock()
 }
 

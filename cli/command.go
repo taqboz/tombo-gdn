@@ -17,6 +17,7 @@ func check(input string) error {
 
 	// 入力されたURLの確認
 	// TODO
+	fmt.Printf("\n調査対象の設定：%s\n", input)
 
 	// Homeディレクトリからリンクを取得
 	doc, _, err := helpers.GetRequestBasicAuth(input)
@@ -31,16 +32,13 @@ func check(input string) error {
 
 	data.NotCheckedPaths = pkg.RemoveDuplicate(helpers.ScrapingPath(doc))
 
-	for _, v := range data.NotCheckedPaths {
-		fmt.Println(v)
-	}
-
 	// 各ディレクトリにアクセスしてリンクチェックを開始
 	if err := commands.Check(input, 2); err != nil {
 		return err
 	}
 
 	// 結果の表示
+	fmt.Printf("\n%d件のエラーリンクを検出\n", len(commands.ErrLinks))
 	for _, v := range commands.ErrLinks {
 		fmt.Println(v.Destination.Path, ":", v.Destination.Status)
 		for _, v2 := range v.Sources {

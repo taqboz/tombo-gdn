@@ -3,7 +3,7 @@ package cli
 import "github.com/urfave/cli"
 
 const (
-	version = "0.2.0"
+	version = "0.7.0"
 	author = "taqboz"
 )
 
